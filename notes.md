@@ -89,4 +89,4 @@ http://djoser.readthedocs.io/en/stable/authentication_backends.html#token-based-
 - path('timestamps/', TimestampListCreateAPIView.as_view())
 20. (Double check for any typos or import errors)
 21. Test locally that you can GET to '/timestamps/' and POST to create a '/timestamps/'
-22. 
+22. Git add . - commit - push to heroku 
