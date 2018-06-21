@@ -74,4 +74,10 @@ http://djoser.readthedocs.io/en/stable/authentication_backends.html#token-based-
     )
 }
 - Now it should work
-14. Commit all changes - push to Heroku 
+14. Commit all changes - push to Heroku
+- create super user in Heroku
+- 'heroku run python manage.py createsuperuser'
+- test auth token create and destroy but with heroku post as url
+15. add timestamp model to app
+- makemigrations and migrate locally
+16. Heroku deploy git add . git commit - git push heroku master
