@@ -54,4 +54,24 @@
 - add "AUTH_USER_MODEL" attribute to settings.py
 11. Add rest_framework and rest_framework.authtoken to installed apps
 12. makemigrations and migrate
-- locally - python manage.py migrate 
+- locally - python manage.py migrate
+- on heroku (git push all migrations and user model stuff first)
+ - 'heroku run python manage.py migrate'
+13. Implement user login / logout (djoser)
+http://djoser.readthedocs.io/en/stable/authentication_backends.html#token-based-authentication
+- add djoser to installed apps
+- add paths to urls - import include
+- run 'python manage.py createsuperuser' to create superuser in app
+- Test user token creation works
+ - post to '/auth/token/create' with Username and Password in request body
+- Test user token destroy works (Postman)
+ - Post to '/auth/token/destroy' with auth token as header (nothing in body):
+ Authorization Token <paste here>
+ - WOOPS we didn't tell settings to use it to use Token Authentication paste into settings:
+ REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+- Now it should work
+14. Commit all changes - push to Heroku 
